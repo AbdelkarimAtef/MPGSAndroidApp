@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MPGSAndroidApp</string>
+    <string name="MERCHANT_SERVER_URL">http://merchantserver_url.com</string>
+    <string name="AUTH_USERNAME">AUTH_USERNAME</string>
+    <string name="AUTH_PASSWORD">AUTH_PASSWORD</string>
+    <string name="TEST_MID">TEST_MID</string>
 </resources>

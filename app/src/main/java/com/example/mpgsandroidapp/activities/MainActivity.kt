@@ -17,8 +17,8 @@ import com.example.mpgsandroidapp.models.*
 class MainActivity : AppCompatActivity() {
 
     // initialise all MPGS variables
-    private val gateway = Gateway().setMerchantId("TEST_MID").setRegion(Gateway.Region.MTF)
-    var callback: GatewayCallback = object : GatewayCallback {
+    private val gateway = Gateway().setMerchantId(getString()).setRegion(Gateway.Region.MTF)
+    private var callback: GatewayCallback = object : GatewayCallback {
         override fun onSuccess(response: GatewayMap) {
             tvUpdate.setText(tvUpdate.getText().toString() + "\n---Session Update Successful---")
         }
