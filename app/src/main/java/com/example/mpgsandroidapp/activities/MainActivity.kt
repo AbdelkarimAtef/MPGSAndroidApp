@@ -2,6 +2,7 @@ package com.example.mpgsandroidapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mpgsandroidapp.R
 import com.google.gson.GsonBuilder
 import com.mastercard.gateway.android.sdk.Gateway
 import com.mastercard.gateway.android.sdk.GatewayCallback
@@ -11,50 +12,49 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.example.mpgsandroidapp.api.MiddlewareClient
-import com.example.mpgsandroidapp.R
 import com.example.mpgsandroidapp.models.*
 
 class MainActivity : AppCompatActivity() {
 
-    // initialise all MPGS variables
-    private val gateway = Gateway().setMerchantId(getString()).setRegion(Gateway.Region.MTF)
-    private var callback: GatewayCallback = object : GatewayCallback {
-        override fun onSuccess(response: GatewayMap) {
-            tvUpdate.setText(tvUpdate.getText().toString() + "\n---Session Update Successful---")
-        }
-
-        override fun onError(throwable: Throwable) {
-            tvUpdate.setText(tvUpdate.getText().toString() + "\n---ERROR: Session Update FAILED---")
-        }
-    }
-    private val paymentInfo = SourceOfFunds(
-        "CARD",
-        Provided(
-            Card(
-                "A Person",
-                "FULL_PAN",
-                Expiry(
-                    "MM",
-                    "YY"
-                ),
-                "CVV")
-        )
-    )
-    private val apiVersion = "52"
-    private val request = GatewayMap()
-        .set("sourceOfFunds.provided.card.nameOnCard", paymentInfo.provided.card.nameOnCard)
-        .set("sourceOfFunds.provided.card.number", paymentInfo.provided.card.number)
-        .set("sourceOfFunds.provided.card.securityCode", paymentInfo.provided.card.securityCode)
-        .set("sourceOfFunds.provided.card.expiry.month", paymentInfo.provided.card.expiry.month)
-        .set("sourceOfFunds.provided.card.expiry.year", paymentInfo.provided.card.expiry.year)
-
-    var sessionId = "NONE"
-
-    private val gsonPretty = GsonBuilder().setPrettyPrinting().create()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // initialise all MPGS variables
+        val gateway = Gateway().setMerchantId(getString(R.string.MID)).setRegion(Gateway.Region.MTF)
+        var callback: GatewayCallback = object : GatewayCallback {
+            override fun onSuccess(response: GatewayMap) {
+                tvUpdate.setText(tvUpdate.getText().toString() + "\n---Session Update Successful---")
+            }
+
+            override fun onError(throwable: Throwable) {
+                tvUpdate.setText(tvUpdate.getText().toString() + "\n---ERROR: Session Update FAILED---")
+            }
+        }
+        val paymentInfo = SourceOfFunds(
+            "CARD",
+            Provided(
+                Card(
+                    "A Person",
+                    "FULL_PAN",
+                    Expiry(
+                        "MM",
+                        "YY"
+                    ),
+                    "CVV")
+            )
+        )
+        val apiVersion = "52"
+        val request = GatewayMap()
+            .set("sourceOfFunds.provided.card.nameOnCard", paymentInfo.provided.card.nameOnCard)
+            .set("sourceOfFunds.provided.card.number", paymentInfo.provided.card.number)
+            .set("sourceOfFunds.provided.card.securityCode", paymentInfo.provided.card.securityCode)
+            .set("sourceOfFunds.provided.card.expiry.month", paymentInfo.provided.card.expiry.month)
+            .set("sourceOfFunds.provided.card.expiry.year", paymentInfo.provided.card.expiry.year)
+
+        var sessionId = "NONE"
+
+        val gsonPretty = GsonBuilder().setPrettyPrinting().create()
 
         // Get Session Button Click
         cmdSession.setOnClickListener{
