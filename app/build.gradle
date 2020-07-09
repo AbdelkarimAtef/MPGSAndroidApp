@@ -68,5 +68,5 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutineVersion"
 
     //MPGS
-    implementation 'com.mastercard.gateway:gateway-android:1.1.2'
+    implementation 'com.mastercard.gateway:gateway-android:1.1.4'
 }
