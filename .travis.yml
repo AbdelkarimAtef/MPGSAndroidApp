@@ -19,3 +19,5 @@ script:
  - ./gradlew build
  - ./gradlew assembleDebug
  - ls -lah
+notifications:
+  email: false
