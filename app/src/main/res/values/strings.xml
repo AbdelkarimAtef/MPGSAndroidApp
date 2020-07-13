@@ -3,7 +3,7 @@
     <string name="apiDown">ERROR. Perhaps the API is down?</string>
     <string name="defaultSession">DEFAULT SESSION VARIABLE FOUND</string>
     <string name="MERCHANT_SERVER_URL">CHANGEME</string>
-    <string name="AUTH_USERNAME">CHANGEME</string>
+    <string name="API_KEY">TESTSDK</string>
     <string name="AUTH_PASSWORD">CHANGEME</string>
     <string name="MID">CHANGEME</string>
 </resources>
