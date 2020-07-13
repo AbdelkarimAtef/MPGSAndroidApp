@@ -15,6 +15,10 @@ android:
     # Specify at least one system image,
     # if you need to run emulator(s) during tests
     #- sys-img-x86-android-29
+
+before_install:
+  - yes | sdkmanager "platforms;android-30"
+
 script:
  - ./gradlew build
  - ./gradlew assembleDebug
