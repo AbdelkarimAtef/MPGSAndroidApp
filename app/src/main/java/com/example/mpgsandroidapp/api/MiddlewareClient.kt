@@ -10,8 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object MiddlewareClient {
     //Keep if Basic Auth is required
-    private val AUTH = "Basic " + Base64.encodeToString(
-        (Strings.get(R.string.AUTH_USERNAME) + ":" + Strings.get(R.string.AUTH_PASSWORD)).toByteArray(), Base64.NO_WRAP)
+    //private val AUTH = "Basic " + Base64.encodeToString(
+    //    (Strings.get(R.string.AUTH_USERNAME) + ":" + Strings.get(R.string.AUTH_PASSWORD)).toByteArray(), Base64.NO_WRAP)
 
     private val baseUrl = Strings.get(R.string.MERCHANT_SERVER_URL)
 
@@ -21,9 +21,7 @@ object MiddlewareClient {
             val original = chain.request()
 
             val requestBuilder = original.newBuilder()
-                .addHeader("Authorization",
-                    AUTH
-                )
+                .addHeader("APIKEY", Strings.get(R.string.API_KEY))
                 .method(original.method(), original.body())
 
             val request = requestBuilder.build()
