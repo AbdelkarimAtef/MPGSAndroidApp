@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             MiddlewareClient.instance.startPayment()
                 .enqueue(object: Callback<GetSessionResponse>{
                     override fun onFailure(call: Call<GetSessionResponse>, t: Throwable) {
-                        tvMain.setText("ERROR. Perhaps the API is down?")
+                        tvMain.setText(getString(R.string.apiDown))
                     }
                     override fun onResponse(
                         call: Call<GetSessionResponse>,
@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 gateway.updateSession(sessionId, apiVersion, request, callback)
 
             } else {
-                tvUpdate.setText("DEFAULT SESSION VARIABLE FOUND")
+                tvUpdate.setText(getString(R.string.defaultSession))
             }
         }
 

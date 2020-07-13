@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">MPGSAndroidApp</string>
-    <string name="MERCHANT_SERVER_URL">http://merchantserver_url.com</string>
-    <string name="AUTH_USERNAME">AUTH_USERNAME</string>
-    <string name="AUTH_PASSWORD">AUTH_PASSWORD</string>
-    <string name="MID">TEST_MID</string>
+    <string name="apiDown">ERROR. Perhaps the API is down?</string>
+    <string name="defaultSession">DEFAULT SESSION VARIABLE FOUND</string>
+    <string name="MERCHANT_SERVER_URL">CHANGEME</string>
+    <string name="AUTH_USERNAME">CHANGEME</string>
+    <string name="AUTH_PASSWORD">CHANGEME</string>
+    <string name="MID">CHANGEME</string>
 </resources>
