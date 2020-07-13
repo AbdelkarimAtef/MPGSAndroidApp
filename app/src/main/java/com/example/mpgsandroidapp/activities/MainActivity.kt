@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     "CVV")
             )
         )
-        val apiVersion = "52"
+        val apiVersion = "56"
         val request = GatewayMap()
             .set("sourceOfFunds.provided.card.nameOnCard", paymentInfo.provided.card.nameOnCard)
             .set("sourceOfFunds.provided.card.number", paymentInfo.provided.card.number)
